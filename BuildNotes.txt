@@ -1,0 +1,56 @@
+Build Notes for xAutoPause - 18/11/2016
+
+Windows
+********
+#Preprocessor directives:
+IBM=1
+
+#Compiler Flags:
+
+
+#Notes:
+
+Linux
+******
+#Preprocessor directives:
+LIN=1
+
+#Compiler Flags:
+-fPIC
+
+
+#Notes:
+
+Using VMWare Ubuntu VM
+Using CodeBlocks
+
+Boolean values true and false MUST be lower case for C++ compilation under GCC on Linux.
+
+MAC
+****
+#Preprocessor directives:
+APL=1
+
+#Compiler Flags:
+-fPIC
+
+#Linker Flags:
+-framework XPLM
+-framework XPWidgets
+-F<path-to-Framework-files>
+
+#Notes:
+
+Using VMWare MAC OSX Sierra
+	VMWare VM Settings:
+	MacBookPro Emulation
+	VM Type - MAC OSX Yosemite (Sierra not in list)
+	Processors - Same as physical PC
+	Chipset - PIIX3
+	Memory - 4GB
+	Video Memory - 128MB
+	Floppy - Disable
+
+	Installed XCode
+
+Using CodeBlocks

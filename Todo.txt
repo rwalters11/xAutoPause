@@ -1,0 +1,7 @@
+
+Todo List for xAutoPause X-Plane Plugin
+
+Error checking on user inputs
+
+Persistent values between sessions
+

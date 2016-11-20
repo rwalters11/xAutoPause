@@ -1,0 +1,6 @@
+Changelog for xAutoPause
+
+18/11/2016
+
+Build of Linux version successful.
+Compile fix for Linux/MAC:  Occurences of TRUE/FALSE changed to lower case for C++ conformance. Upper case is Windows only.
