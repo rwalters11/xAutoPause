@@ -1,0 +1,5 @@
+﻿1>------ Build started: Project: xAutoPause, Configuration: Debug x64 ------
+1>     Creating library ..\..\..\..\X-Plane 10\Resources\plugins\xAutoPause\64\Win.lib and object ..\..\..\..\X-Plane 10\Resources\plugins\xAutoPause\64\Win.exp
+1>  xAutoPause.vcxproj -> D:\X Plane\Plugin_Development\xAutoPause\..\..\..\..\X-Plane 10\Resources\plugins\xAutoPause\64\Win.xpl
+1>  xAutoPause.vcxproj -> ..\..\..\..\X-Plane 10\Resources\plugins\xAutoPause\64\Win.pdb (Full PDB)
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
