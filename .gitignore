@@ -6,6 +6,8 @@
 *.lo
 *.o
 *.obj
+*.iobj
+*.exp
 
 # Precompiled Headers
 *.gch
@@ -77,6 +79,9 @@ Thumbs.db
 *.depend
 *.layout
 *.sln
+
+# Debug files
+*.ipdb
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
