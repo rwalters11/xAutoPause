@@ -1,13 +1,37 @@
 Build Notes for xAutoPause - 18/11/2016
 
+See http://http://www.xsquawkbox.net/xpsdk/mediawiki/BuildInstall for X-Plane SDK build notes.
+
+Targeting:
+X-Plane 9.0 onwards - define XPLM200 - Fat Plugins ONLY.
+X-Plane 10.0 onwards - define XPLM200 AND XPLM210 - Fat Plugins ONLY.
+
+#Plugin folder architecture
+ mac.xpl      <- mac dylib with multiple code architectures: ppc, i386, x86_64
+  32
+   win.xpl    <- 32-bit (win32) windows dll
+   lin.xpl    <- 32-bit (i386) Linux shared object
+   optional other 32-bit dlls needed
+  64
+   win.xpl    <- 64-bit (x64) windows dll
+   lin.xpl    <- 64-bit (x86_64) Linux shared object
+   optional other 64-bit dlls needed
+ other files for the plugin (pngs, etc.) in any sub folders as desired.
+
 Windows
 ********
 #Preprocessor directives:
 IBM=1
 
-#Compiler Flags:
+#Compiler Notes:
 Using pre-compiled header stdafx.h
 Using windows.cpp
+
+#Suppressed Warnings
+C4244 - Conversion from 'double' to 'float' possible loss of data.
+C4996 - Unsafe string warning - enhanced version contains buffer length.
+
+#Compiler Flags
 
 
 #Linker

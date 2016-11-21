@@ -2,12 +2,16 @@ Changelog for xAutoPause
 
 20-21/11/2016
 
+Defined to reference v2.0 of X-Plane SDK targeting X-Plane version 9 onwards only using Fat Plugin architecture.
+
 CodeBlocks build of Mac version successful with edits to allow for compilation.
 
 GitHub DVCS repo for project setup.
 
 Git repo on OSX for Mac version setup.
+Git Desktop GUI installed for Mac and Windows.
 Git repo and integration with Visual Studio for Windows version setup.
+Git repo and Git-cola GUI setup.
 
 18/11/2016
 

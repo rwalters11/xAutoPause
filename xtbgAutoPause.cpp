@@ -10,6 +10,8 @@
 
 #pragma warning(disable:4996)
 
+#define XPLM200 = 1;  // This plugin requires SDK2.0
+
 /* My precompiled headers */
 #include "stdafx.h"
 
