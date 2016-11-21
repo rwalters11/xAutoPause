@@ -1,6 +1,17 @@
 Changelog for xAutoPause
 
+20-21/11/2016
+
+CodeBlocks build of Mac version successful with edits to allow for compilation.
+
+GitHub DVCS repo for project setup.
+
+Git repo on OSX for Mac version setup.
+Git repo and integration with Visual Studio for Windows version setup.
+
 18/11/2016
 
-Build of Linux version successful.
+CodeBlocks build of Linux version successful.
 Compile fix for Linux/MAC:  Occurences of TRUE/FALSE changed to lower case for C++ conformance. Upper case is Windows only.
+
+Visual Studio build of Windows version successful.

@@ -6,9 +6,17 @@ Windows
 IBM=1
 
 #Compiler Flags:
+Using pre-compiled header stdafx.h
+Using windows.cpp
+
+
+#Linker
+XPLM & XPWidgets 86/64 libraries linked.
 
 
 #Notes:
+
+Using MS Visual Studio 2015
 
 Linux
 ******
@@ -34,6 +42,8 @@ APL=1
 #Compiler Flags:
 -fPIC
 
+#Linker
+XPLM & XPWidgets 86/64 frameworks linked.
 #Linker Flags:
 -framework XPLM
 -framework XPWidgets
