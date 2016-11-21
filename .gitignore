@@ -72,6 +72,12 @@ Thumbs.db
 *.sln.docstates
 *.vcxproj.filters
 
+# Solution and Project files
+*.vcxproj
+*.depend
+*.layout
+*.sln
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
