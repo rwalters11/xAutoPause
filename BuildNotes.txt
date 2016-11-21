@@ -42,8 +42,12 @@ APL=1
 #Compiler Flags:
 -fPIC
 
+
+
 #Linker
 XPLM & XPWidgets 86/64 frameworks linked.
+
+
 #Linker Flags:
 -framework XPLM
 -framework XPWidgets
