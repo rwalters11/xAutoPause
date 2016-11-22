@@ -1,4 +1,17 @@
-Build Notes for xAutoPause - 18/11/2016
+Build Notes for xAutoPause - Updated 22/11/2016
+
+X-Plane 11 Specific Notes:
+
+System requirements: http://www.x-plane.com/kb/x-plane-11-system-requirements/
+
+64 bit only.
+OS X Yosemite ->
+Windows 7 ->
+Linux Ubuntu 14.04 & 16.04 LTS or equivalent ->
+
+
+
+General Notes:
 
 See http://http://www.xsquawkbox.net/xpsdk/mediawiki/BuildInstall for X-Plane SDK build notes.
 

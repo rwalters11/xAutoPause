@@ -11,7 +11,7 @@ TBG C++ Class and Function Library
 /* xtbgLibrary header */
 #include "xtbgLibrary.h"
 
-/* Unique Namespace for our library */
+/* Unique Namespace for our plugins */
 namespace Xtbg
 {
 

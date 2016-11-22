@@ -1,5 +1,11 @@
 Changelog for xAutoPause
 
+22/11/2016
+
+Started FMS & GPS Interaction development.
+
+On OS X set to use Posix paths.
+
 20-21/11/2016
 
 Defined to reference v2.0 of X-Plane SDK targeting X-Plane version 9 onwards only using Fat Plugin architecture.

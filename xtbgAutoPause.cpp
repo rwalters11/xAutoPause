@@ -17,6 +17,7 @@
 
 /* C++ headers */
 #include "xtbgLibrary.h"
+#include "xFMS.h"
 
 using namespace std;								// Strings etc are in namespace std
 
@@ -167,7 +168,11 @@ PLUGIN_API int XPluginStart(
 			XPLMDebugString("TimedProccessing - Unable to convert path\n");
 	#endif
 
-	Logger.Open(outputPath);					// Create and open the log file
+	#if APL
+		XPLMEnableFeature("XPLM_USE_NATIVE_PATHS", 1);									// Use Posix paths on OS X
+	#endif
+
+	Logger.Open(outputPath);															// Create and open the log file
 
 	// Create our menu
 	XPLMMenuID	id;
@@ -841,23 +846,23 @@ float	MyFlightLoopCallback(
 // Update the Monitor window
 void UpdateMonitor(Xtbg::LatLong inLatLong)
 {
-	char Buffer[20];											// Initialise string buffer
+	char Buffer[20];																					// Initialise string buffer
 
 	Xtbg::PauseSegment::strctDistances cbDistances = currentPauseSegment.SetCurrentPosition(inLatLong);	// Get the calculated distances to
 																										// the current position which is
 																										// passed in.
 	string Waypoint = currentPauseSegment.NavAidID();
 
-	sprintf(Buffer, "%f", currentLatLong.Lat());				// Update Latitude display
+	sprintf(Buffer, "%f", currentLatLong.Lat());														// Update Latitude display
 	XPSetWidgetDescriptor(MonitorLat, Buffer);
 
-	sprintf(Buffer, "%f", currentLatLong.Long());				// Update Longitude display
+	sprintf(Buffer, "%f", currentLatLong.Long());														// Update Longitude display
 	XPSetWidgetDescriptor(MonitorLong, Buffer);
 
-	sprintf(Buffer, "%s", Waypoint.c_str());							// Update Waypoint display
+	sprintf(Buffer, "%s", Waypoint.c_str());															// Update Waypoint display
 	XPSetWidgetDescriptor(MonitorWaypoint, Buffer);
 
-	sprintf(Buffer, "%5.1f", cbDistances.Distance2PausePoint);		// Update Distance display - formatted 9999.9
+	sprintf(Buffer, "%5.1f", cbDistances.Distance2PausePoint);											// Update Distance display - formatted 9999.9
 	XPSetWidgetDescriptor(MonitorDistance, Buffer);
 
 	/* Test for Pause to be initiated*/
