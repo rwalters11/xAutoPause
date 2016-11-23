@@ -17,6 +17,8 @@
 	#include <cmath>
 	#include <ctime>
 
+	#include "xtbgLibrary.h"
+
 	using namespace std;
 
 	/* Custom namespace for our plugins */
@@ -31,7 +33,7 @@
 			XPLMNavType navType = xplm_Nav_Unknown;							// XPlane NavAid types
 			string navID = "";												// NavAid Identifier
 			XPLMNavRef navRef = 0;											// XPlane Nav DB reference
-			Xtbg::LatLong navLatLong;												// NavAid Lat/Long coordinates held in a structure			
+			LatLong navLatLong;												// NavAid Lat/Long coordinates held in a structure			
 		} FMSENTRY;
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -56,7 +58,10 @@
 			int m_FMS_DisplayIndex = 0;						// FMS display index
 			int m_FMS_DestinationIndex = 0;					// FMS destination index
 
-			FMSENTRY m_FMS_LegInfo;							// FMS leg information
+			FMSENTRY m_FMS_LegInfo[MAX_FMS_ENTRIES];		// FMS leg information
+
+			void Initialise();								// Set initial values
+			void GetFMSData();
 
 			// Public members and functions
 		public:
@@ -64,13 +69,11 @@
 			/* Constructors */
 			xFMS();
 
-			//Log(string logFileName);						// Constructor accepting Log File Name as parameter
-
-															/* Set/Get*/
-			//string getLogFilePathName();
+			/* Set/Get*/
+			int FMSCount();									// Get
 
 			/* Functions */
-			void Initialise();								// Set initial values
+			
 
 		};
 

@@ -32,9 +32,9 @@ const string pluginSignature = "xtbg.autopause";
 const string pluginDescription = "Plugin to pause sim at given location.";
 
 /* File to write log to. */
-static Xtbg::Log Logger;							// Create the Logging object
-static string	logFileName="xAutoPause.txt";		// Log file name
-static char		cOutputPath[512];					// char C string as X-Plane function returns a char type
+static Xtbg::Log	Logger;								// Create the Logging object
+static string		logFileName="xAutoPause.log";		// Log file name
+static char			cOutputPath[512];					// char C string as X-Plane function returns a char type
 //static string   outputPath="";						// char path converted to c++ string
 
 #if APL && __MACH__ && RW
@@ -46,8 +46,8 @@ static string outputPath="";
 #endif
 
 /* Data refs we will get from x-plane. */
-static XPLMDataRef		gPlaneLat;
-static XPLMDataRef		gPlaneLon;
+static XPLMDataRef		gPlaneLat;						// Latitude
+static XPLMDataRef		gPlaneLon;						// Longitude
 
 /* Current Latitude/Longitude */
 static Xtbg::LatLong	currentLatLong;

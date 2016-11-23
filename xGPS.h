@@ -17,11 +17,26 @@
 	#include <cmath>
 	#include <ctime>
 
+	#include "xtbgLibrary.h"
+
 	using namespace std;
 
 	/* Custom namespace for our plugins */
 	namespace Xtbg
 	{
+		/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		/// Structure for the FMS Leg Entries
+		typedef struct _GPSENTRY_t
+		{
+			int Index;
+			XPLMNavType navType = xplm_Nav_Unknown;							// XPlane NavAid types
+			string navID = "";												// NavAid Identifier
+			XPLMNavRef navRef = 0;											// XPlane Nav DB reference
+			LatLong navLatLong;												// NavAid Lat/Long coordinates held in a structure			
+		} GPSENTRY;
+
+		/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 		/* Class xGPS
 		*
@@ -43,7 +58,7 @@
 			int m_GPS_DisplayIndex = 0;						// FMS display index
 			int m_GPS_DestinationIndex = 0;					// FMS destination index
 
-			FMSENTRY m_GPS_LegInfo;							// FMS leg information
+			GPSENTRY m_GPS_LegInfo;							// FMS leg information
 
 															// Public members and functions
 		public:

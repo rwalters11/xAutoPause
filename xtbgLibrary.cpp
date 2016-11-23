@@ -313,6 +313,27 @@ namespace Xtbg
 
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+		/* Function XP_Info
+		*
+		* Retrieves info about X-Plane Installation
+		*
+		*/
+
+		XPLANE_INFO XP_Info()
+		{
+			XPLANE_INFO m_XPInfo;
+
+			XPLMGetVersions(&m_XPInfo.Version, &m_XPInfo.XPLM_version, &m_XPInfo.ApplicationID);
+
+			return m_XPInfo;
+
+		}
+
+		/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
 	/*
 	*
 	* Apple MAC specific functions

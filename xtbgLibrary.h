@@ -29,6 +29,26 @@
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+		/// Structure to hold X-Plane System data
+		typedef struct _XPLANE_INFO
+		{
+			int Version;									// XPlane version
+			int XPLM_version;								// XPLM version
+			XPLMHostApplicationID ApplicationID;			// ID of hosting application
+			string Plugin_version = Plugin_version;			// Plugin version from global
+
+		}XPLANE_INFO;
+
+		/* Function XP_Info
+		*
+		* Retrieves info about X-Plane Installation
+		*
+		*/
+
+		XPLANE_INFO XP_Info();
+
+		/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 		/// Structure for the nav types and a more meaningful description
 		typedef struct _NAVTYPE
 		{
@@ -223,6 +243,16 @@
 		*/
 
 		const string currentDateTime();
+
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		/* Function XP_Info
+		*
+		* Retrieves info about X-Plane Installation
+		*
+		*/
+
+		XPLANE_INFO XP_Info();
 
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
