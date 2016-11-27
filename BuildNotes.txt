@@ -103,5 +103,6 @@ Using VMWare MAC OSX Sierra
 	Floppy - Disable
 
 	Installed XCode
+	NB XCode on macOS VM only sees devices connected via USB2.0 emulated interface irrespective of host USB physical connection.
 
 Using CodeBlocks

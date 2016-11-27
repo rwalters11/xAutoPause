@@ -10,7 +10,7 @@
 
 #pragma warning(disable:4996)
 
-#define XPLM200 = 1;  // This plugin requires SDK2.0
+#define XPLM200 = 1;								// This plugin requires SDK2.0
 
 /* My precompiled headers */
 #include "stdafx.h"
@@ -18,6 +18,7 @@
 /* C++ headers */
 #include "xtbgLibrary.h"
 #include "xFMS.h"
+#include "messagewindow.h"
 
 using namespace std;								// Strings etc are in namespace std
 
@@ -72,6 +73,8 @@ static int MenuItem1, NavTypeLinePosition, MonitorCreated;			// Flags
 
 static Xtbg::PauseSegment currentPauseSegment;						// Pause segment obj to hold the current Pause Segment
 
+static float LoopInterval = 1.0;									// Specify's Flight loop callback interval
+
 /*
 * Forward references to callback handlers
 *
@@ -112,8 +115,18 @@ static float	MyFlightLoopCallback(
 	int                  inCounter,
 	void *               inRefcon);
 
+// Timer Flight Loop Callback
+static float	TimerLoopCallback(
+	float                inElapsedSinceLastCall,
+	float                inElapsedTimeSinceLastFlightLoop,
+	int                  inCounter,
+	void *               inRefcon);
+
 // Update the Monitor window
 void UpdateMonitor(Xtbg::LatLong inLatLong);
+
+/* Start the Pause Timer */
+void StartPauseTimer(int Interval);
 
 // Pause the Simulator
 static bool PauseSimulator();
@@ -191,7 +204,7 @@ PLUGIN_API int XPluginStart(
 	* registers but does not schedule a callback for time. */
 	XPLMRegisterFlightLoopCallback(
 		MyFlightLoopCallback,	/* Callback */
-		1.0,					/* Interval */
+		LoopInterval,					/* Interval */
 		NULL);					/* refcon not used. */
 
 	// Flag to tell us if the settings widget is being displayed.
@@ -303,6 +316,10 @@ void xAutoPauseMenuHandler(void * mRef, void * iRef)
 			Logger.Write(" Pause destination set to default: GCTS 28.0445,-16.5725");
 		}
 
+		/* Start the Pause Timer */
+		StartPauseTimer(10);
+
+		/* End of Testing */
 		////////////////////////////////////////////////////////////////////////////
 	}
 }
@@ -840,7 +857,46 @@ float	MyFlightLoopCallback(
 	}
 
 	/* Return 1.0 to indicate that we want to be called again in 1 second. */
-	return 1.0;
+	return LoopInterval;
+}
+
+/* Start the Pause Timer */
+void StartPauseTimer(int Interval)
+{
+	if (Interval > 0) 
+	{
+		/* Register our callback.  Positive intervals
+		* are in seconds, negative are the negative of sim frames.  Zero
+		* registers but does not schedule a callback for time. */
+		XPLMRegisterFlightLoopCallback(
+			TimerLoopCallback,				/* Callback */
+			Interval,						/* Interval */
+			NULL);							/* refcon not used. */
+
+		Logger.Write("Pause timer started to return in: " + to_string(Interval) + "s");
+	}
+}
+
+// Timer Flight Loop Callback
+float	TimerLoopCallback(
+	float                inElapsedSinceLastCall,
+	float                inElapsedTimeSinceLastFlightLoop,
+	int                  inCounter,
+	void *               inRefcon)
+{
+	/* The actual callback. */
+
+	PauseSimulator();
+
+	/* Update the monitor window*/
+	if (MonitorCreated)
+	{
+		//UpdateMonitor(currentLatLong);							// Update the monitor window
+	}
+
+	/* Return 0 to indicate that we don't want to be called again */
+	return 0;
+
 }
 
 // Update the Monitor window
@@ -880,9 +936,10 @@ void UpdateMonitor(Xtbg::LatLong inLatLong)
 // Pause the Simulator
 bool PauseSimulator()
 {
+	//OnScreenDisplay(300,100,"Test");
 	XPLMCommandKeyStroke(xplm_key_pause);
 
-	Logger.Write("Simulator paused at: ");
+	Logger.Write("Simulator paused");
 
 	return true;
 

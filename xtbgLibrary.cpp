@@ -14,8 +14,39 @@ TBG C++ Class and Function Library
 /* Unique Namespace for our plugins */
 namespace Xtbg
 {
-
 	using namespace std;										// Strings etc are in namespace std
+
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		/* Class xErrorHandler
+		*
+		* Implements an error handler
+		*
+		*/
+
+		/* Constructors */
+
+		xErrorHandler::xErrorHandler() {}											// Empty constructor
+
+		/* Set/Get*/
+		
+
+		/* Functions */
+
+
+
+
+
+
+
+
+		/*
+		*
+		* End of class xErrorHandler
+		*
+		*/
+
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 		/* Class Log
 		*

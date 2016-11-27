@@ -22,6 +22,54 @@
 	/* Custom namespace for our plugins */
 	namespace Xtbg
 	{
+
+		/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		/* Class xErrorHandler
+		*
+		* Implements an error handler
+		*
+		*/
+
+		class xErrorHandler
+		{
+
+			// Private members and functions
+		private:
+
+			//string m_logFilePathName = "log.txt";			// Default file name
+			//ofstream strmLogFile;							// Define the stream object
+
+															// Public members and functions
+		public:
+
+			/* Constructors */
+			xErrorHandler();
+
+			/* Set/Get*/
+			//string getLogFilePathName();
+
+			/* Functions */
+			//int Open(string logFilePathName);
+			//int Write(string inString);
+			//int Flush();
+			//int Close();
+
+		};
+
+
+
+
+
+
+
+
+		/*
+		*
+		* End of class xErrorHandler
+		*
+		*/
+
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 		// Defined default values
